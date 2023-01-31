@@ -2,9 +2,13 @@ package main
 
 import (
 	// "bufio"
+	// "crypto/rand"
 	"fmt"
+	"math"
+	// "time"
+	// "time"
 	// "strings"
-	"unicode/utf8"
+	// "unicode/utf8"
 	// "log"
 	// "os"
 	// "reflect"
@@ -94,11 +98,49 @@ func main() {
 	// pl("suffix :", strings.HasSuffix("tacocat", "cat"))
 	
 	//Runes(Characters)
-	rStr := "abcdefg"
-	pl("Rune Count :", utf8.RuneCountInString(rStr))
-	for i, runeVal := range rStr{
-		fmt.Printf("%d : %#U : %c\n", i, runeVal, runeVal)
-	}
+	// rStr := "abcdefg"
+	// pl("Rune Count :", utf8.RuneCountInString(rStr))
+	// for i, runeVal := range rStr{
+	// 	fmt.Printf("%d : %#U : %c\n", i, runeVal, runeVal)
+	// }
+
+	//Working with Time
+	// now := time.Now()
+	// pl(now.Year(), now.Month(), now.Day())
+	// pl(now.Hour(), now.Minute(), now.Second())
+
+	//Basic Operators
+	// pl("5 + 4", 5+4)
+	// pl("5 - 4", 5-4)
+	// pl("5 * 4", 5*4)
+	// pl("5 / 4", 5/4)
+	// pl("5 % 4", 5%4)
+ 
+	//Precision with Float values
+	// pl("Float Precision =", 0.1111111111111 + 0.1111111111111)
+
+	//Math Functions
+	pl("Abs(-10) =", math.Abs(-10))
+	pl("Pow(4, 2) =", math.Pow(4, 2))
+	pl("Sqrt(16) =", math.Sqrt(16))
+	pl("cbrt(8) =", math.Cbrt(8))
+	pl("ceil(4.4) =", math.Ceil(4.4))
+	pl("Floor(4.4) =", math.Floor(4.4))
+	pl("Round(4.4) =", math.Round(4.4))
+	pl("Log2(8) =", math.Log2(8))
+	pl("Log10(100) =", math.Log10(100))
+	//The Log of e to the power of 2
+	pl("Log(7.389) =", math.Log(math.Exp(2)))
+	pl("Max(5,4) =", math.Max(5, 4))
+	pl("Min(5,4) =", math.Min(5, 4))
+	// Convert 90 degrees to radius
+	r90 := 90 * math.Pi / 180
+	d90 := r90 * (180 / math.Pi)
+	fmt.Printf("%f radius = %f degrees\n", r90, d90)
+	pl("Sin(90) =", math.Sin(r90))
+	//There are also functions for Cos, Tan, Acos, Asin
+	// Atan, Asinh, Acosh, Atanh, Cosh, Sinh, Sincos
+	
 }
 
 
