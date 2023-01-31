@@ -3,7 +3,14 @@ package main
 import (
 	// "bufio"
 	// "crypto/rand"
+	"bufio"
 	"fmt"
+	"log"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+	"math/rand"
 	// "math"
 	// "time"
 	// "time"
@@ -153,14 +160,57 @@ func main() {
 	// %v : Guesses based on data type
 	// %T : Type of supplied value
 
-	fmt.Printf("%s %d %c %f %t %o %x\n",
-		"Stuff", 1, 'A', 3.14, true, 1, 1) 
-	fmt.Printf("%9f\n", 3.14)	
-	fmt.Printf("%.2f\n", 3.141592)	
-	fmt.Printf("%9.f\n", 3.141592)
+	// fmt.Printf("%s %d %c %f %t %o %x\n",
+	// 	"Stuff", 1, 'A', 3.14, true, 1, 1) 
+	// fmt.Printf("%9f\n", 3.14)	
+	// fmt.Printf("%.2f\n", 3.141592)	
+	// fmt.Printf("%9.f\n", 3.141592)
 	
-	sp1 := fmt.Sprintf("%9.f\n", 3.141592)
-	pl(sp1)
+	// sp1 := fmt.Sprintf("%9.f\n", 3.141592)
+	// pl(sp1)
+
+	//FOR LOOPS
+	//for initialization; conditions; postStatement {BODY}
+	// for x := 1; x <= 5; x++{
+	// 	pl(x)
+	// }
+
+	// for x := 5; x >= 1; x--{
+	// 	pl(x)
+	// }
+
+	// fx := 0
+	// for fx < 5 {
+	// 	pl(fx)
+	// 	fx++
+	// }
+
+	seedSecs := time.Now().Unix()
+	rand.Seed(seedSecs)
+	randNum := rand.Intn(50) + 1
+	for true {
+		fmt.Print("Guess a number between 0 and 50 :")
+		pl("Random Number is :", randNum)
+		reader := bufio.NewReader(os.Stdin)
+		guess, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+		guess = strings.TrimSpace(guess)
+		iGuess, err := strconv.Atoi(guess)
+		if err != nil {
+			log.Fatal(err)
+		}
+		if iGuess > randNum {
+			pl("Pick a lower value")
+		}else if iGuess < randNum {
+			pl("Pick a higher value")
+		}else{
+			pl("You Guess it")
+			break
+		}
+	}
+
 	
 }
 
